@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sheeps and Rams</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css">
+	<style type="text/css">
+		#user-entry {
+			margin-top: 30px;
+		}
+		.container {
+			margin-top: 100px;
+		}
+		input,button {
+			margin-top: 20px;
+		}
+		#current-result-panel{
+
+			margin-top: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row jumbotron">
+			<div class="col-md-6 text-center">
+				<button class="btn btn-info" id="start-btn">StartGame</button>
+				<br/>
+				<input class="text-center form-control col-lg-8" type="number" name="user-entry" id="user-entry" value='1000'>
+				<br/>
+				<div class="panel panel-primary" id="current-result-panel">
+					<div class="panel-heading" id="current-input-result">
+					</div>
+				</div>
+				<br/>
+				<button class="btn btn-warning disabled" id="game-btn">Check input</button>
+				<br/>
+				<button class="btn btn-danger disabled" id="end-btn">End game</button>
+			</div>
+			<div class="col-md-6 text-center" id="high-scores-container">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						High scores
+					</div>
+					<div id='high-scores'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="lib/jquery/dist/jquery.js"></script>
+	<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="scripts/storage-renderer.js"></script>
+	<script src="lib/underscore/underscore.js"></script>
+	<script type="text/javascript" src="scripts/input-checker.js"></script>
+	<script type="text/javascript" src="scripts/game-engine.js"></script>
+	<script type="text/javascript" src="scripts/sheeps.js"></script>
+</body>
+</html>
