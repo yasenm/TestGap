@@ -1,4 +1,0 @@
-TestGap
-=======
-
-Testing phonegap

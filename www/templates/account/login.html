@@ -1,0 +1,19 @@
+<ion-view title="Login">
+    <ion-content class="has-header">
+       
+        <div class="list list-inset" id="login-form">
+            <form name="loginForm" ng-hide="identity.isAuthenticated()">
+                <label class="item item-input">
+                    <input type="email" placeholder="Email" ng-model="user.Username"/>
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="user.Password"/>
+                </label>
+
+                <button class="button button-block button-balanced" ng-click="login(user, loginForm)">Login</button>
+                <a class="button button-block button-balanced" href="#/signup">Register</a>
+            </form>
+        </div>
+        
+    </ion-content>
+</ion-view>

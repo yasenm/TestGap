@@ -1,0 +1,30 @@
+<ion-view title="{{catalogProduct.Product.Name}}">
+    <ion-content class="has-header">
+        <ion-list>
+            <div class="row">
+                <div class="col col-33 img-container">
+                    <img ng-src="{{catalogProduct.Product.ImageUrl}}" alt="no image found">
+                </div>
+                <div class="col">
+                    <h4>{{catalogProduct.Product.Name}}</h4>
+                    <h5>{{catalogProduct.Product.Category.Name}}</h5>
+                </div>
+            </div>
+            <div class="item item-body">
+                <h2>Average freshness : <strong>{{catalogProduct.LifetimeInDays}}</strong> days</h2>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ng-click="addToFridge()">
+                    <i class="icon ion-social-buffer"></i>
+                    To fridge
+                </a>
+                <a class="tab-item" href="/shopping-list" ng-click="addToList()">
+                    <i class="icon ion-social-buffer-outline"></i>
+                    To list
+                </a>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>
+

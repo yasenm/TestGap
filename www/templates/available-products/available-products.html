@@ -1,0 +1,24 @@
+<ion-view title="Fridge">
+    <!--<ion-nav-buttons side="left">-->
+    <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+    <!--</ion-nav-buttons>-->
+    <!--<ng-include ng-show="isLogged"></ng-include>-->
+
+    <ion-content class="has-header">
+        <ion-list>
+            <a class=" button button-block button-balanced" href="#/catalog-products">   Add product</a>
+            <div class="responsive-sm" paging="true">
+                <a class="item item-avatar" ng-swipe-right="swipeRight(product.Id)" ng-repeat="product in availableProducts"
+                   href="#/catalog-product-details/{{product.ProductId}}">
+                    <img ng-src="{{product.Product.ImageUrl}}" alt="no image found"/>
+                    <strong>{{product.Product.Name}}</strong>
+                    <br/>
+                    <small>{{product.Product.Category.Name}}</small>
+                    <br/>
+                    <span ng-show="product.freshness < 200">Expires in... <strong>{{product.freshness}}</strong> days</span>
+                    <br/>
+                </a>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

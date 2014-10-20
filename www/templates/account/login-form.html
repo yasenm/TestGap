@@ -1,0 +1,35 @@
+<div ng-controller="LoginCtrl">
+
+    <div class="list list-inset" ng-view="loginActive">
+        <form name="loginForm" ng-hide="identity.isAuthenticated()">
+            <label class="item item-input">
+                <input type="text" placeholder="Username" ng-model="user.Username"/>
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="user.Password"/>
+            </label>
+
+            <button class="button button-block button-positive" ng-click="login(user, loginForm)">Login</button>
+            <a class="button button-block button-positive" ng-click="changeToSignUp()">Sign Up</a>
+        </form>
+    </div>
+
+    <div class="list list-inset" ng-controller="SignUpCtrl">
+        <form name="signUpForm" ng-hide="identity.isAuthenticated()">
+            <label class="item item-input">
+                <input type="email" placeholder="email@mail.com" ng-model="user.Email"/>
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Username" ng-model="user.Username"/>
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="user.Password"/>
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Confirm password" ng-model="user.ConfirmPassword"/>
+            </label>
+
+            <button class="button button-block button-positive" ng-click="signup(user, signUpForm)">Sign Up</button>
+        </form>
+    </div>
+</div>

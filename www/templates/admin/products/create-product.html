@@ -1,0 +1,44 @@
+<ion-view title="Create product">
+    <ion-content class="has-header">
+        <div class="list list-inset">
+            <form name="productForm" method="POST" enctype="multipart/form-data" ng-hide="identity.isAuthenticated()">
+                <label class="item item-input">
+                    <input type="text" placeholder="Name" ng-model="product.Name"/>
+                </label>
+                <label class="item item-input">
+                    <input type="file" placeholder="ImageUrl" fileread="product.ImageUrl"/>
+                </label>
+
+                <!--<div class="item item-thumbnail">-->
+                    <!--<div class="col col-33 img-container">-->
+                        <!--<img src="{{product.ImageUrl}}">-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <label class="item item-input">
+                    <input type="number" placeholder="Measurement units" ng-model="product.MeasurementUnit"/>
+                </label>
+
+                <label class="item item-input">
+                    <input type="number" placeholder="Category id" value="1" ng-model="product.CategoryId"/>
+                </label>
+
+                <!-- Select option for categories -->
+                <!--<label class="item item-input">-->
+                    <!--<select ng-model="product.CategoryId">-->
+                        <!--<option ng-repeat="category from categories" value="{{category.Id}}">{{category.Name}}</option>-->
+                    <!--</select>-->
+                <!--</label>-->
+
+                <label class="item item-input">
+                    <select ng-model="product.UnitType">
+                        <option value="Kilograms">Kilograms</option>
+                        <option value="Grams">Grams</option>
+                    </select>
+                </label>
+
+                <button class="button button-block button-positive" ng-click="createProduct(product, productForm)">Create</button>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,15 @@
+<ion-view title="Recipes">
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-content class="has-header">
+        <ion-list>
+            <a class="item item-avatar" ng-repeat="recipe in recipes | filter:recipeNameFilter" href="#/tab/recipes/{{recipe.Id}}">
+                <img ng-src="{{recipe.ImageUrl}}"/>
+                <strong>{{recipe.Name}}</strong>
+                <br/>
+                <small>{{recipe.Category.Name}}</small>
+            </a>
+        </ion-list>
+    </ion-content>
+</ion-view>
