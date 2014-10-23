@@ -54,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGenerators\DataGenerator.cs" />
     <Compile Include="DataGenerators\IDataGenerator.cs" />
-    <Compile Include="DataGenerators\UserGenerator.cs" />
+    <Compile Include="DataGenerators\PostsGenerator.cs" />
+    <Compile Include="DataGenerators\UsersGenerator.cs" />
     <Compile Include="FileSniffing\SnippetExtractor.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="FileSniffing\CodeFileSniffer.cs" />

@@ -12,6 +12,7 @@
             var post = new Post();
             post.AuthorId = this.User.Identity.GetUserId();
             post.Category = (Category)Enum.Parse(typeof(Category), this.CategoryDropDownList.SelectedValue);
+            post.DateCreated = DateTime.Now;
             this.TryUpdateModel(post);
             if(this.ModelState.IsValid)
             {

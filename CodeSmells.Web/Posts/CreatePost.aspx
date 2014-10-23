@@ -25,7 +25,7 @@
             <div class="form-group">
                 <asp:Label runat="server" ID="BodyLabel" Text="Code" CssClass="col-md-2 control-label"></asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox runat="server" Width="650" Height="300" ID="BodyTextBox" TextMode="MultiLine" CssClass="form-control" Text="<%#: BindItem.Body %>"></asp:TextBox>
+                    <asp:TextBox runat="server" Width="650" Height="300" ID="BodyTextBox" TextMode="MultiLine" CssClass="form-control prettyprint linenums" Text="<%#: BindItem.Body %>"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">

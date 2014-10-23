@@ -7,13 +7,33 @@
         ItemType="CodeSmells.Models.Post" 
         DataKeyNames="PostId"
         SelectMethod="GetPostById"
-        AutoGenerateRows="false" 
-        class="table table-striped table-hover">
+        AutoGenerateRows="False" 
+        class="table table-striped">
         <Fields>
             <asp:BoundField HeaderText="Category" DataField="Category"/>            
             <asp:BoundField HeaderText="Title" DataField="Title"/>
-            <asp:BoundField HeaderText="Author" DataField="Author.UserName"/>
-            <asp:BoundField HeaderText="Code" DataField="Body"/>
+            <asp:TemplateField HeaderText="Author">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Author.UserName") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:HyperLink ID="TextBox1" runat="server" NavigateUrl='<%# "~/Public/ProfileDetails.aspx?id="+Eval("AuthorId") %>' Text='<%# Bind("Author.UserName") %>'></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="Created on" DataField="DateCreated"/>
+            <asp:TemplateField HeaderText="Code">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Body") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    <asp:TextBox ID="TextBox1" CssClass="prettyprint linenums" runat="server" Text='<%# Bind("Body") %>'></asp:TextBox>
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <pre class="prettyprint linenums">
+                        <asp:Label ID="Label1" runat="server" CssClass="prettyprint linenums" Text='<%# Bind("Body") %>'></asp:Label>
+                    </pre>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField HeaderText="Rating" DataField="Rating"/>
         </Fields>
     </asp:DetailsView>

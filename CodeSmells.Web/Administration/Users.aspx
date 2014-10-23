@@ -25,7 +25,9 @@
                 NullImageUrl="\Uploads\Images\default.jpg">
                 <ItemStyle Height="30px" Width="30px" />
             </asp:ImageField>
-            <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+            <asp:HyperLinkField DataTextField="UserName" HeaderText="Action"
+                DataNavigateUrlFields="Id"
+                DataNavigateUrlFormatString="EditUser.aspx?userId={0}" />
             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
             <asp:HyperLinkField Text="Edit" HeaderText="Action"
                 DataNavigateUrlFields="Id"

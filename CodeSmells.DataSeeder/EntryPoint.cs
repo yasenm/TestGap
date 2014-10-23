@@ -7,31 +7,52 @@
     using FileSniffing;
     using CodeSmells.Models;
     using CodeSmells.Data;
-    using DataGenerators;
+    using CodeSmells.DataSeeder.DataGenerators;
 
     class EntryPoint
     {                       
-        static Random randomProvider = new Random();
+        private static Random randomProvider = new Random();
 
-        static string[] categories = new string[] { "PHP", "JS", "HTML", "CS", "CSS" };
+        private static Dictionary<string, List<string>> snippets = new Dictionary<string, List<string>>();
 
-        static Dictionary<string, List<string>> snippets = new Dictionary<string, List<string>>();
+        private static CodeSmellsData codeSmellsData = new CodeSmellsData();
 
         static void Main(string[] args)
         {
             try
             {
+                //set some parameters
+                string[] smellyDirs = new string[]{
+                     @"E:\xampp\htdocs\IdeaStar\",
+                     @"E:\GitHub\personal\personal\TelerikAcademy\AspNetWebPages"
+                };
+                //
+                string[] allowedExtensions = new string[] { "*.php", "*.js", "*.html", "*.cs", "*.css" };
+                string[] categories = new string[] { "PHP", "JS", "HTML", "CS", "CSS" };
+                //
+                string fileNamesDumpFile = "smellyFiles.txt";
+                string snippetsDumpFile = "snippets.txt";
+                string postTitlesFile = "postTitles.txt";
+                //usernames to generate
+                string[] usernamesForUsersToInsert = new string[] {
+                    "lalna",
+                    "honeydew",
+                    "xephos",
+                    "sips",
+                    "sjin",
+                    "kjoravia"
+                };
+                //start work
                 Console.WriteLine("CodeSmells data seeder");
                 Console.WriteLine("- - -");
                 //First: Sniff for code files.
-                //SniffForCodeFiles();
+                //SniffForCodeFiles(smellyDirs,allowedExtensions,fileNamesDumpFile);
                 //Second: Extract code snippets.
-                //ExtractSnippetsFromFiles();
+                //ExtractSnippetsFromFiles(fileNamesDumpFile,snippetsDumpFile);
                 //Third: Generate some users.
-                GenerateFakeUsers();
+                //GenerateFakeUsers(usernamesForUsersToInsert);
                 //Forth: Get required info and generate posts
-                GenerateFakePosts();
-
+                GenerateFakePosts(snippetsDumpFile,postTitlesFile,categories);
             }
             catch (Exception boom)
             {
@@ -39,40 +60,31 @@
             }
         }
 
-        //TODO: Major refactoring
-        //TODO: Extract some constants
-
-        static void SniffForCodeFiles()
+        static void SniffForCodeFiles(string[] smellyDirs, string[] allowedExtensions,string dumpFile,int maxFileLength=100)
         {
-            //Sniff folders for code! 
-            string[] smellyDirs = new string[]{
-                     @"E:\xampp\htdocs\",
-                     @"E:\GitHub\personal\personal\TelerikAcademy\"
-                };
-            //specify extensions
-            string[] allowedExtensions = new string[] { "*.php", "*.js", "*.html", "*.cs", "*.css" };
-            CodeFileSniffer fileSniffer = new CodeFileSniffer(smellyDirs, allowedExtensions, "smellyFiles.txt");
-            fileSniffer.MaxFileName = 100;
+            CodeFileSniffer fileSniffer = new CodeFileSniffer(smellyDirs, allowedExtensions, dumpFile);
+            fileSniffer.MaxFileName = maxFileLength;
             Console.WriteLine("Started file sniffing...");
             fileSniffer.Sniff();
             Console.WriteLine("File sniffing finished!");
         }
 
-        static void ExtractSnippetsFromFiles()
+        static void ExtractSnippetsFromFiles(string filenamesSource, string snippetsDumpFile,int snippetMinLength=100)
         {
-            SnippetExtractor snippetExtractor = new SnippetExtractor("smellyFiles.txt", "snippets.txt", randomProvider);
+            SnippetExtractor snippetExtractor = new SnippetExtractor(filenamesSource, snippetsDumpFile, randomProvider);
             Console.WriteLine("Started extracting snippets...");
-            snippetExtractor.SnippetMinLength = 100;
+            snippetExtractor.SnippetMinLength = snippetMinLength;
             snippetExtractor.ExtractSnippets();
             Console.WriteLine("Snippet extracting finished!");
         }
 
-        static CodeSmellsData codeSmellsData = new CodeSmellsData();
-
-        static void GenerateFakeUsers()
+        static void GenerateFakeUsers(string[] usernamesForUsersToInsert)
         {
             Console.WriteLine("Generating fake users...");
-            UserGenerator userGenerator = new UserGenerator(codeSmellsData);
+            UsersGenerator userGenerator = new UsersGenerator(codeSmellsData);
+            //
+            userGenerator.UsernamesToInsert = usernamesForUsersToInsert;
+            //
             userGenerator.Generate();
             Console.WriteLine("Fake users generated!");
         }
@@ -104,11 +116,10 @@
             return result;
         }
 
-        static void GenerateFakePosts()
+        static void GenerateFakePosts(string snippetsDumpFile, string postTitlesFile, string[] categories)
         {
-            //List<Post> posts=new List<Post>();
+            List<Post> posts=new List<Post>();
             //load snippets
-            //snippets.A
             Console.WriteLine("Generating fake posts...");
             Console.WriteLine("->loading snippets");
             foreach (string categ in categories)
@@ -116,7 +127,7 @@
                 snippets.Add(categ.ToLower(), new List<string>());
             }
 
-            using (StreamReader snippetsReader = new StreamReader("snippets.txt"))
+            using (StreamReader snippetsReader = new StreamReader(snippetsDumpFile))
             {
                 string line = "";
                 //assign language to post title
@@ -144,11 +155,11 @@
             }
             //assign snippets to post titles
             //load users and assign random user to a post
-            Console.WriteLine("->selecting usrs from db");
+            Console.WriteLine("->selecting users from db");
             User[] users = codeSmellsData.Users.All().ToArray();
             //load post titles
             Console.WriteLine("->generating posts");
-            using (StreamReader postTitlesReader = new StreamReader("postTitles.txt"))
+            using (StreamReader postTitlesReader = new StreamReader(postTitlesFile))
             {
                 string phrase = "";
                 //assign language to post title
@@ -159,23 +170,28 @@
                         string category = categories[randomProvider.Next(0, categories.Length - 1)];
                         string title = String.Format(phrase, category);
                         string catToLower = category.ToLower();
-                        string snippet = snippets[catToLower][randomProvider.Next(0, snippets[catToLower].Count - 1)];
-                        //create post objects 
-                        codeSmellsData.Posts.Add(new Post()
+                        if (snippets[catToLower].Count > 0)
                         {
-                            Title = title,
-                            AuthorId = users[randomProvider.Next(0, users.Length - 1)].Id,
-                            Body = snippet,
-                            Category = SeederToModelCategory(category)
-                        });
-                        //remove snippet, to avoid doubles
-                        snippets[catToLower].Remove(snippet);
+                            string snippet = snippets[catToLower][randomProvider.Next(0, snippets[catToLower].Count - 1)];
+                            //create post objects 
+                            posts.Add(new Post()
+                            {
+                                Title = title,
+                                AuthorId = users[randomProvider.Next(0, users.Length - 1)].Id,
+                                Body = snippet,
+                                Category = SeederToModelCategory(category)
+                            });
+                            //remove snippet, to avoid doubles
+                            snippets[catToLower].Remove(snippet);
+                        }
                     }
                 }
             }
             //save post objects
             Console.WriteLine("->saving posts");
-            codeSmellsData.SaveChanges();
+            PostsGenerator postsGenerator = new PostsGenerator(codeSmellsData);
+            postsGenerator.PostsToInsert = posts.ToArray();
+            postsGenerator.Generate();
             Console.WriteLine("Fake posts generated!");
         }
     }

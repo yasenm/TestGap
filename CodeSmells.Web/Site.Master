@@ -90,7 +90,7 @@
                 </asp:ContentPlaceHolder>
                 <hr />
                 <footer class="panel-footer text-center">
-                    <p>&copy; <%: DateTime.Now.Year %> - Telerik Academy Team Jodi Picoult</p>
+                    <p>&copy; <%: DateTime.Now.Year %> - Telerik Academy <a href="https://github.com/stinger907/CodeSmells" target="_blank">Team Jodi Picoult</a></p>
                 </footer>
             </div>
         </form>
