@@ -1,0 +1,12 @@
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\CodeSmells.Models.dll.config
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\CodeSmells.Models.dll
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\CodeSmells.Models.pdb
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\EntityFramework.dll
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\EntityFramework.xml
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\obj\Debug\CodeSmells.Models.csprojResolveAssemblyReference.cache
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\obj\Debug\CodeSmells.Models.dll
+C:\Users\Yasen\Documents\GitHub\CodeSmells\Source\CodeSmells\CodeSmells.Models\obj\Debug\CodeSmells.Models.pdb
