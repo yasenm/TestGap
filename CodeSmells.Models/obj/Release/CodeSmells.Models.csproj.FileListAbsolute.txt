@@ -1,0 +1,11 @@
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\CodeSmells.Models.dll.config
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\CodeSmells.Models.dll
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\CodeSmells.Models.pdb
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\EntityFramework.dll
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\EntityFramework.xml
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\obj\Release\CodeSmells.Models.dll
+C:\Users\Yasen\Documents\GitHub\TestGap\CodeSmells.Models\obj\Release\CodeSmells.Models.pdb

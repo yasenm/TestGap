@@ -9,7 +9,7 @@ namespace CodeSmells.Web.Posts
 
     public partial class GetPosts : BasePage
     {
-        public string[] collection = {"a", "b", "c", "d"};
+        public string[] collection = { "a", "b", "c", "d" };
         public Post test;
 
         //public IQueryable<Post> GetAllPosts()
@@ -20,6 +20,18 @@ namespace CodeSmells.Web.Posts
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.GetAllPostsGridView.DataSource = GetAllPosts()
+                .Select(p => new
+                    {
+                        AuthorId = p.AuthorId,
+                        Author = p.Author.UserName,
+                        Title = p.Title,
+                        Body = p.Body,
+                        PostId = p.PostId,
+                        DateCreated = p.DateCreated,
+                        Category = p.Category
+                    }).ToList(); ;
+
             this.DataBind();
         }
 

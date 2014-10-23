@@ -181,6 +181,7 @@
     <Content Include="Posts\Web.config" />
     <Content Include="Administration\MasterPageAdmins.master" />
     <Content Include="Public\MasterPageProfile.master" />
+    <None Include="Properties\PublishProfiles\codesmells.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Posts\CreatePost.aspx" />
     <Content Include="Public\ProfileDetails.aspx" />

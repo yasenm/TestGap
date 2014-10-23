@@ -43,6 +43,12 @@
                             </a>
                         </h1>
                     </div>
+                    
+                    <div class="row">
+                        <h1>
+                            Rating <%#: Item.Rating %>
+                        </h1>
+                    </div>
                 </div>
                 <br />
             </ItemTemplate>
