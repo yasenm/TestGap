@@ -38,8 +38,8 @@
         </Fields>
     </asp:DetailsView>
     <div class="form-horizontal">
-        <asp:Button runat="server" ID="UpVoteButton" Text="Up Vote" OnClick="UpVoteButton_Click"/>
-        <asp:Button runat="server" ID="DownVoteButton" Text="Down Vote" OnClick="DownVoteButton_Click"/>
+        <asp:Button runat="server" CssClass="btn btn-success" ID="UpVoteButton" Text="Up Vote" OnClick="UpVoteButton_Click"/>
+        <asp:Button runat="server" CssClass="btn btn-danger" ID="DownVoteButton" Text="Down Vote" OnClick="DownVoteButton_Click"/>
     </div>
     <h3>Comments</h3>
     <asp:Repeater runat="server" ID="CommentsRepeater" ItemType="CodeSmells.Models.Comment">
