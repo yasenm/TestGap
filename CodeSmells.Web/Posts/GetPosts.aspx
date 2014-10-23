@@ -34,10 +34,10 @@
                             DataNavigateUrlFormatString="GetPosts?category={0}" />
                         <asp:TemplateField HeaderText="Author">
                             <ItemTemplate>
-                                <asp:HyperLink ID="TextBox1" runat="server" NavigateUrl='<%# "~/Public/ProfileDetails.aspx?id="+Eval("AuthorId") %>' Text='<%# Bind("Author.UserName") %>'></asp:HyperLink>
+                                <asp:HyperLink ID="TextBox1" runat="server" NavigateUrl='<%# "~/Public/ProfileDetails.aspx?id="+Eval("AuthorId") %>' Text="Author link"></asp:HyperLink>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataField="Rating" HeaderText="Rating" />
+                        <%--<asp:BoundField DataField="Rating" HeaderText="Rating" />--%>
                     </Columns>
                     <PagerSettings PageButtonCount="4" Mode="NextPrevious" NextPageText="Next" PreviousPageText="Previous" />
                 </asp:GridView>
