@@ -20,9 +20,9 @@
         ItemType="CodeSmells.Models.User"
         SelectMethod="GridViewUsers_GetData">
         <Columns>
-            <asp:ImageField DataImageUrlFormatString="\Uploads\Images\{0}" 
+            <asp:ImageField DataImageUrlFormatString="~/Uploads/Images/{0}" 
                 DataImageUrlField="ProfileImage"
-                NullImageUrl="\Uploads\Images\default.jpg">
+                NullImageUrl="~/Uploads/Images/default.jpg">
                 <ItemStyle Height="30px" Width="30px" />
             </asp:ImageField>
             <asp:HyperLinkField DataTextField="UserName" HeaderText="Action"

@@ -23,11 +23,11 @@
         {
             if (!string.IsNullOrEmpty(this.CurrentUser.ProfileImage))
             {
-                this.AvatarContainer.ImageUrl = ("/Uploads/Images/" + this.CurrentUser.ProfileImage);
+                this.AvatarContainer.ImageUrl = ("~/Uploads/Images/" + this.CurrentUser.ProfileImage);
             }
             else
             {
-                this.AvatarContainer.ImageUrl = ("/Uploads/Images/default.jpg");
+                this.AvatarContainer.ImageUrl = ("~/Uploads/Images/default.jpg");
             }
             this.Page.DataBind();
         }
